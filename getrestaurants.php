@@ -1,0 +1,1 @@
+// get all restaurants with their relevant info to display as a grid of cards
