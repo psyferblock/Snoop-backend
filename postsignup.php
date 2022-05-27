@@ -10,13 +10,20 @@
 
 include("connection.php");
 
-$title = $_POST["title"];
+$name = $_POST["title"];
 $desc = $_POST["description"];
 $points = $_POST["pts"];
 $is_done = 0;
+$id =$_POST["id"]
+$name =$_POST["full_name"]
+$email=$_POST["email"]
+$gender=$_POST["male/female"]
+$birth_date=$_POST["dob"]
+$password=$_POST["pass"]
+$user_type=$_POST["user_type"]
 
-$query = $mysqli->prepare("INSERT INTO todos(title, description, point, is_done) VALUES (?, ?, ?, ?)");
-$query->bind_param("ssii", $title, $desc, $points, $is_done);
+$query = $mysqli->prepare("INSERT INTO users(id,name,email, gender, birth_date,password,user_type) VALUES (?, ?, ?, ?,?,?,?)");
+$query->bind_param("ssii",$id,$name,$email, $gender, $birth_date,$password,$user_type);
 $query->execute();
 
 $response = [];

@@ -1,10 +1,12 @@
-// get all users with their relevant information
+<!-- // get all users with their relevant information
 
 
 
-// charbel example
+// charbel example -->
 
-<?php
+<?php echo "hello world"?>
+
+<!-- <?php
 include("connection.php");
 $query = $mysqli->prepare("SELECT title from todos");
 $query->execute();
@@ -16,4 +18,4 @@ while ($todo = $array->fetch_assoc()) {
 $json = json_encode($response);
 echo $json;
 
-?>
+?> -->
