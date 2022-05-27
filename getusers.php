@@ -6,7 +6,7 @@
 
 <?php echo "hello world"?>
 
-<?php
+<!-- <?php
 include("connection.php");
 $query = $mysqli->prepare("SELECT name from users");
 $query->execute();
@@ -18,4 +18,4 @@ while ($user = $array->fetch_assoc()) {
 $json = json_encode($response);
 echo $json;
 
-?>
+?> -->
