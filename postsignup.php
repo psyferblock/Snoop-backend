@@ -1,15 +1,17 @@
 
 <?php
-$name = $_POST["name"];
-$email = $_POST["email"];
+echo "wut is happening ";
 
-$results = [
-    "name" => $name,
-    "email" => $email
-];
-echo json_encode($results);
+// $name = $_POST["name"];
+// $email = $_POST["email"];
 
-?>
+// $results = [
+//     "name" => $name,
+//     "email" => $email
+// ];
+// echo json_encode($results);
+
+// 
 
 // sign up of user
 // receive: full name, email, gender, dob,password to hash
@@ -20,12 +22,16 @@ echo json_encode($results);
 // charbel example, to be edited
 
 
-// include("connection.php");
+include("connection.php");
 
 
 // $id =$_POST["id"];
-// $name =$_POST["full_name"];
-// $email=$_POST["email"];
+$name = $_POST["full_name"];
+$email = $_POST["email"];
+$results = [
+    "name" => $name,
+    "email" => $email
+];
 // $gender=$_POST["male/female"];
 // $birth_date=$_POST["dob"];
 // $password=$_POST["password"];
@@ -35,9 +41,10 @@ echo json_encode($results);
 // $query->bind_param("ississi",$id,$name,$email, $gender, $birth_date,$password,$user_type);
 // $query->execute();
 
-// $response = [];
-// $response["success"] = true;
+$response = [];
+$response["success"] = true;
 
-// echo json_encode($response);
+echo json_encode($results);
+echo json_encode($response);
 
-// ?>
+?>
