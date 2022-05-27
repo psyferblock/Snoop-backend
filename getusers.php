@@ -6,16 +6,16 @@
 
 <?php echo "hello world"?>
 
-<!-- <?php
+<?php
 include("connection.php");
-$query = $mysqli->prepare("SELECT title from todos");
+$query = $mysqli->prepare("SELECT name from users");
 $query->execute();
 $array = $query->get_result();
 $response = [];
-while ($todo = $array->fetch_assoc()) {
-    $response[] = $todo;
+while ($user = $array->fetch_assoc()) {
+    $response[] = $user;
 }
 $json = json_encode($response);
 echo $json;
 
-?> -->
+?>
