@@ -10,6 +10,7 @@
  $description=$_GET["description"];
  $coverImage=$_GET["coverImage"];
 
+//  the query !
  $query= $mysqli->prepare("INSERT into restaurants (rest_name,address,description,cover_image_url) values( ?,?,?,?)");
  $query->bind_param("ssss", $name, $address, $description, $coverImage);
  $query->execute();
@@ -17,10 +18,5 @@
  $response["success"] = true;
 
  echo json_encode($response);
-
-?>
-
-
-
 
 ?>
