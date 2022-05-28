@@ -3,4 +3,12 @@
 
 
 
-<?php echo '<p>Hello World</p>'; ?>
+<?php echo '<p>Hello World</p>'; 
+
+$id=$_GET["id"];
+$review_id=$_GET["id"]
+
+
+
+
+?>
