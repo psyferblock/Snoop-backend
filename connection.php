@@ -1,4 +1,5 @@
-// database connection
+
+<!--  the connection to the local host -->
 
 <?php
 $host = "localhost";
