@@ -1,1 +1,9 @@
-// get all restaurants with their relevant info to display as a grid of cards
+<?php
+
+$id=
+$rest_name
+$address
+$description
+$cover_image
+
+?>
