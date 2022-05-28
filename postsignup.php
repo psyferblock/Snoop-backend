@@ -16,3 +16,15 @@ $results = [
 ];
 
 ?>
+<!-- 
+let data = new FormData();
+            data.append('user_id', id);
+            axios({
+                method: 'post',
+                url: 'http://localhost/project/get_restos.php',
+                data: data,
+            })
+            .then(function (response) {
+                console.log(response);
+                }
+            }) -->

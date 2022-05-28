@@ -5,12 +5,13 @@
 // charbel example -->
 
 <?php
-echo "hello world"
 
 
 include("connection.php");
 
-$query = $mysqli->prepare("SELECT name from users");
+
+$query = $mysqli->prepare("SELECT * from users");
+$json = $json_encode($query);
 echo "$query";
 
 ?>

@@ -1,15 +1,21 @@
 <?php
 include("connection.php");
 
-$id = $_GET["id"];
-// $rest_name=
+// $id = $_GET["id"];
+// $rest_name=$_GET[]
 // $address
 // $description
 // $cover_image
 
-$query = $mysqli->prepare("select rest_name,address,description,cover_image_url from restaurants where id=?");
+$query = $mysqli->prepare("SELECT rest_name,cover_image_url from restaurants");
 $query ->bind_param("i",$id);
 $query->execute();
-$json=json_encode($query);
-echo " $json";
+$array=$query->get_result()
+$response=[];
+while ( $together = $array->fetch_assoc()){
+    $response[]=$together;
+};
+
+$json=json_encode($response);
+
 ?>
