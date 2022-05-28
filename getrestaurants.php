@@ -1,11 +1,7 @@
 <?php
 include("connection.php");
 
-// $id = $_GET["id"];
-// $rest_name=$_GET[]
-// $address
-// $description
-// $cover_image
+// api that gets restaurants 
 
 $query = $mysqli->prepare("SELECT rest_name,cover_image_url from restaurants");
 $query ->bind_param("i",$id);

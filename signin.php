@@ -4,10 +4,13 @@
 // sign in api
 
 include("connection.php");
+
 $email = $_POST["email"];
 $password = hash("sha256", $_POST["password"]);
 
-$query = $mysqli->prepare("Select id from users where email = ? AND password = ?");
+// adding the query
+
+$query = $mysqli->prepare("SELECT id from users where email = ? AND password = ?");
 $query->bind_param("ss", $email, $password);
 $query->execute();
 $query->store_result();
@@ -15,6 +18,8 @@ $num_rows = $query->num_rows;
 $query->bind_result($id);
 $query->fetch();
 $response = [];
+
+// condition for user to sign in 
 
 if ($num_rows == 0) {
     $response["response"] = "User Not Found";

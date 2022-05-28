@@ -33,8 +33,7 @@ if ($num_rows == 1) {
     $query=$mysqli->prepare("INSERT into users(full_name,email,gender,date_of_birth,password,user_type) values (?,?,?,?,?,?)");
     $query->bind_param("ssissi", $full_name, $email, $gender, $dob,$password,$user_type);
     $querry-> execute();
-    $response=[];
-    $response["success"]=true;
+    $response["success"]="true";
 
 }
 
