@@ -1,17 +1,9 @@
-
 <?php
-header('Access-Control-Allow-Origin: *');
-// sign in api
-
 include("connection.php");
 
 $email = $_POST["email"];
-$password = $_POST["password"];
-// $password = hash("sha256", $_POST["password"]);
+$password = hash("sha256", $_POST["password"]);
 
-// adding the query
-
-// $query = $mysqli->prepare("SELECT username, password FROM users WHERE username = ?");
 $query = $mysqli->prepare("SELECT user_id, full_name, email, gender, date_of_birth,user_type FROM users WHERE email = ? AND password = ?");
 $query->bind_param("ss", $email, $password);
 $query->execute();
