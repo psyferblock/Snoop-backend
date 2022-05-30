@@ -16,6 +16,11 @@ $response = [];
 // return users if user id is admin
 
 $query = $mysqli->prepare("SELECT * from users");
+$json = $json_encode($query);
+$query->execute();
+$json=json_encode($query);
+
+echo "$json";
 echo json_encode($response);
 
 ?>

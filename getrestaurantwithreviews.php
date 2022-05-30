@@ -1,4 +1,5 @@
-<?php  
+<?php 
+ echo $_GET["id"];
 
 include("connection.php");
 
@@ -6,7 +7,7 @@ $id=$_GET["id"];
 
 // the query that will call the reviews and ratings 
 
-$query=$mysqli->query("SELECT review_text,rating_score from reviews where status='1' and restaurants_restaurant_id = ? ");
+$query=$mysqli->prepare("SELECT review_text,rating_score from reviews where status='1' and restaurants_restaurant_id ='?'");
 
 // binding the query executing and calling the json function
 
@@ -19,7 +20,4 @@ echo $json;
 ?>
 
 
-// SELECT users.full_name, reviews.review_text, reviews.rating_score
-// FROM reviews
-// INNER JOIN users ON reviews.users_user_id =users.user_id where status='1' 
-// and restaurants_restaurant_id='5';
+
