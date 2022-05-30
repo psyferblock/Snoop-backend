@@ -11,6 +11,9 @@ $user_id = $_POST["user_id"];
 
 $query = $mysqli->prepare("SELECT * from users");
 $json = $json_encode($query);
-echo "$query";
+$query->execute();
+$json=json_encode($query);
+
+echo "$json";
 
 ?>

@@ -1,4 +1,5 @@
-<?php  
+<?php 
+ echo $_GET["id"];
 
 include("connection.php");
 
