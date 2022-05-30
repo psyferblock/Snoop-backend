@@ -6,7 +6,7 @@ $email = $_POST["email"];
 $gender = $_POST["gender"];
 $dob = $_POST["date_of_birth"];
 $password = hash("sha256", $_POST["password"]);
-$user_type = $_POST["user_type"];
+$user_type = 0;
 
 $query = $mysqli->prepare("INSERT INTO users(full_name, email, gender, date_of_birth, password, user_type) VALUES (?,?,?,?,?,?) ON DUPLICATE KEY UPDATE gender=gender");
 $query->bind_param("ssissi", $full_name, $email, $gender, $dob, $password, $user_type);
