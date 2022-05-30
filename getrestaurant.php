@@ -1,8 +1,7 @@
 <?php
 include("connection.php");
 
-// the api that gets the resraurant with all its data 
-
+// the api that gets one resraurant with all its data 
 $id = $_GET["id"];
 
 // get resto info

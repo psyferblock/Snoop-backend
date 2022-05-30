@@ -1,6 +1,6 @@
 <?php  
-
 include("connection.php");
+
 $user_id = $_POST["user_id"];
 
 // TODO make sure an admin is the person requesting

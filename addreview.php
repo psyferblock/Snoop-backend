@@ -1,7 +1,5 @@
-
-
 <?php
- include("connection.php");
+include("connection.php");
 
 // api to add the restaurant features by admin 
 
