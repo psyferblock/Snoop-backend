@@ -13,7 +13,7 @@
 //  the query !
 
  $query= $mysqli->prepare("INSERT into reviews (review_text,rating_score,restaurants_restaurant_id,users_user_id) values( ?,?,?,?) ");
- $query->bind_param("ssii",  $review, $rating,$id,$user_id);
+ $query->bind_param("ssii", $review, $rating, $id, $user_id);
  $query->execute();
  $response = [];
  $response["success"] = true;

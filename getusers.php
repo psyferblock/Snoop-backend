@@ -1,26 +1,20 @@
 
 <?php
-include("connection.php");
 
+include("connection.php");
 $user_id = $_POST["user_id"];
 
-$query = $mysqli->prepare("SELECT user_id, user_type FROM users WHERE user_id = ? AND user_type = 1");
-$query->bind_param("ss", $user_id, $user_type);
+// makes sure an admin is the person requesting
+$query = $mysqli->prepare("SELECT a.user_id, a.full_name, a.email, a.gender, a.date_of_birth, a.user_type FROM users a, users b WHERE b.user_id = ? AND b.user_type = 1");
+$query->bind_param("i", $user_id);
 $query->execute();
-$query->store_result();
-$num_rows = $query->num_rows;
-$query->bind_result($user_id, $full_name, $email, $gender, $date_of_birth, $user_type);
-$query->fetch();
+
+$array = $query->get_result();
 $response = [];
-// get user id from post
-// return users if user id is admin
+while($user = $array->fetch_assoc()){
+    $response[] = $user;
+} 
 
-$query = $mysqli->prepare("SELECT * from users");
-$json = $json_encode($query);
-$query->execute();
-$json=json_encode($query);
-
-echo "$json";
 echo json_encode($response);
 
 ?>

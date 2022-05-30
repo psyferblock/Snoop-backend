@@ -5,9 +5,24 @@ include("connection.php");
 
 $id = $_GET["id"];
 
-$query = $mysqli->prepare("select rest_name,address,description,cover_image_url from restaurants where id=?");
-$query ->bind_param("i",$id);
-$query->execute();
-$json=json_encode($query);
-echo $json;
+// get resto info
+$resto_query = $mysqli->prepare("SELECT id, rest_name, address, description, cover_image_uri FROM restaurants r WHERE r.id = ?");
+$resto_query ->bind_param("i",$id);
+$resto_query->execute();
+$resto_array = $resto_query->get_result();
+
+// get reviews
+$rev_query = $mysqli->prepare("SELECT review_id	,review_text ,rating_score ,status ,users_user_id,restaurants_restaurant_id	FROM reviews v WHERE status=1 AND v.restaurants_restaurant_id=?");
+$rev_query ->bind_param("i",$id);
+$rev_query->execute();
+$rev_array = $rev_query->get_result();
+
+$response[] = $resto_array->fetch_assoc();
+
+while($rev = $rev_array->fetch_assoc()){
+    $response[] = $rev;
+}
+
+echo json_encode($response);
+
 ?>

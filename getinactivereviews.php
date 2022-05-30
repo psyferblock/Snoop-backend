@@ -1,19 +1,15 @@
 <?php  
 
 include("connection.php");
+$user_id = $_POST["user_id"];
 
-// $id=$_GET["id"];
+// TODO make sure an admin is the person requesting
+$query=$mysqli->prepare("SELECT * FROM reviews WHERE status=0");
+// $query->bind_param("i", $user_id);
 
-// the query that will call the reviews and ratings 
-
-$query=$mysqli->prepare("SELECT * from reviews where status='0' ");
-
-// binding the query executing and calling the json function
-
-// $query->bind_param("i", $id);
 $query->execute();
 $array=$query->get_result();
 $response[]=$array->fetch_assoc();
-$json=json_encode($response);
-echo $json;
+
+echo json_encode($response);
 ?>
