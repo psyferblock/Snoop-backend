@@ -23,5 +23,4 @@ while($rev = $rev_array->fetch_assoc()){
 }
 
 echo json_encode($response);
-
 ?>

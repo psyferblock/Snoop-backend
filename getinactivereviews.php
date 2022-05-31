@@ -14,6 +14,5 @@ $response=[];
 while($review = $array->fetch_assoc()){
     $response[] = $review;
 }
-
 echo json_encode($response);
 ?>

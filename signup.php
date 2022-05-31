@@ -35,3 +35,4 @@ if ($num_rows == 0) {
     $response["user_type"] = $response_user_type;
 }
 echo json_encode($response);
+?>

@@ -11,7 +11,6 @@ $accepted=$_POST["accepted"];
 
 //update happens here
 if ($accepted==1){
-
     $query = $mysqli->prepare("UPDATE reviews SET status= 1 WHERE review_id = ? ");
     $query->bind_param("i",$review_id);
     $query->execute();
@@ -19,14 +18,13 @@ if ($accepted==1){
     $response["status"]=true;
     $response["message"]="accepted";
 }else{
-    $query = $mysqli->prepare("DELETE from reviews where review_id=? ");
+    $query = $mysqli->prepare("DELETE from reviews where review_id=?");
     $query->bind_param("i",$review_id);
-    
+    $query->execute();
     $response=[];
     $response["message"]="deleted";
     
 }
 
-// condition for user to sign in 
-
 echo json_encode($response);
+?>
