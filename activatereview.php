@@ -15,9 +15,9 @@ $review_id=$_POST["review_id"];
 $query = $mysqli->prepare("UPDATE reviews SET status= 1 WHERE review_id = ? ");
 $query->bind_param("i",$review_id);
 $query->execute();
-$query->store_result();
-$query->bind_result($user_id);
-$query->fetch();
+// $query->store_result();
+// $query->bind_result($user_id);
+// $query->fetch();
 $response=[];
 $response ["success"]=true;
 
