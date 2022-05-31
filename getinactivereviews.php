@@ -9,7 +9,11 @@ $query=$mysqli->prepare("SELECT * FROM reviews WHERE status=0");
 
 $query->execute();
 $array=$query->get_result();
-$response[]=$array->fetch_assoc();
+$response=[];
+
+while($review = $array->fetch_assoc()){
+    $response[] = $review;
+}
 
 echo json_encode($response);
 ?>

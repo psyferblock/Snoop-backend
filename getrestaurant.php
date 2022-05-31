@@ -5,8 +5,8 @@ include("connection.php");
 $id = $_GET["id"];
 
 // get resto info
-$resto_query = $mysqli->prepare("SELECT id, rest_name, address, description, cover_image_uri, AVG(v.rating_score) avg FROM restaurants r,reviews v WHERE r.id = ?");
-$resto_query ->bind_param("i",$id);
+$resto_query = $mysqli->prepare("SELECT id, rest_name, address, description, cover_image_uri, AVG(v.rating_score) avg FROM restaurants r,reviews v WHERE r.id = ? AND v.restaurants_restaurant_id=?");
+$resto_query ->bind_param("ii",$id,$id);
 $resto_query->execute();
 $resto_array = $resto_query->get_result();
 
